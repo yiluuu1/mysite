@@ -1,0 +1,23 @@
+<html lang="">
+<head>
+    <title>My Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      setInterval(function() {
+        $.ajax({
+          url: "/monitor",
+          success: function(data) {
+            $("#data").html(data);
+          }
+        });
+      }, 5000);
+    });
+    </script>
+</head>
+<body>
+    <div id="data">
+        {{ data|safe }}
+    </div>
+</body>
+</html>
